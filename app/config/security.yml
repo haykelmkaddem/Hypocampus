@@ -1,0 +1,38 @@
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+
+    role_hierarchy:
+        ROLE_USER:  ROLE_USER
+        ROLE_ADMIN: ROLE_ADMIN
+        ROLE_SCRUM_MASTER:  ROLE_SCRUM_MASTER
+        ROLE_DEVELOPER: ROLE_DEVELOPER
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username_email
+
+    firewalls:
+        main:
+            pattern: ^/
+            user_checker: security.user_checker
+            form_login:
+                provider: fos_userbundle
+                csrf_token_generator: security.csrf.token_manager
+                always_use_default_target_path: false
+                default_target_path: /user/home
+
+            logout:       true
+            anonymous:    true
+
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register/confirmed , role: IS_AUTHENTICATED_REMEMBERED }
+        - { path: ^/register, role: ROLE_ADMIN  }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/backlog/, role: ROLE_USER }
+        - { path: ^/meeting/, role: ROLE_USER }
+        - { path: ^/equipe/, role: ROLE_USER }
+
+

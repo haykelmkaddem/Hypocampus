@@ -1,0 +1,75 @@
+event_homepage:
+    path:     /
+    defaults: { _controller: EventBundle:Default:index }
+
+addp:
+    path:     /P/Addp
+    defaults: { _controller: EventBundle:Participant:Addp }
+
+_updatevent:
+    path:     /P/Updatevent/{nomp}
+    defaults: { _controller: EventBundle:Participant:Updatevent }
+
+_readevent:
+    path:     /P/Readevent
+    defaults: { _controller: EventBundle:Participant:Readevent }
+
+_deletevent:
+    path:     /P/Deletevent/{nomp}
+    defaults: { _controller: EventBundle:Participant:Deletevent }
+
+searchp:
+    path:     /P/Searchp
+    defaults: { _controller: EventBundle:Participant:Searchp }
+
+viewparticipant:
+    path:     /P/view
+    defaults: { _controller: EventBundle:EventAdmin:Viewparticipant }
+
+triep:
+    path:     /P/Triep
+    defaults: { _controller: EventBundle:Participant:Triep }
+
+loginp:
+    path:     /P/Loginp
+    defaults: { _controller: EventBundle:Participant:Loginp }
+
+addevent:
+    path:     /addeventA
+    defaults: { _controller: EventBundle:EventAdmin:addevent }
+
+afficherevent:
+    path:     /afficherevent
+    defaults: { _controller: EventBundle:EventAdmin:afficherevent }
+
+update_events:
+    path:     /updateEvents/{idev}
+    defaults: { _controller: EventBundle:EventAdmin:updateEvents }
+
+deleteevents:
+    path:     /deleteevents/{idev}
+    defaults: { _controller: EventBundle:EventAdmin:deleteevents }
+
+searchevents:
+    path:     /searchevents
+    defaults: { _controller: EventBundle:EventAdmin:searchevents }
+
+statevent:
+    path:     /statevent
+    defaults: { _controller: EventBundle:EventAdmin:statevent }
+
+addcertif:
+    path:     /addcertif
+    defaults: { _controller: EventBundle:Certif:addcertif }
+
+readcertif:
+    path:     /readcertif
+    defaults: { _controller: EventBundle:Certif:readcertif }
+
+updatecertif:
+    path:     /updatecertif/{idc}
+    defaults: { _controller: EventBundle:Certif:updatecertif }
+
+deletecertif:
+    path:     /deletecertif/{idc}
+    defaults: { _controller: EventBundle:Certif:deletecertif }

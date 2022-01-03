@@ -1,0 +1,110 @@
+{% extends 'backend.html.twig' %}
+{% block body %}
+    <div class="app-content content">
+        <div class="content-wrapper">
+
+            <div class="content-body"><!-- Chart -->
+                <div class="col">
+                    <div class="card" >
+
+                        <div class="card-header">
+                            <h4 class="card-title" id="basic-layout-icons">Créer sprint</h4>
+                            <a class="heading-elements-toggle">
+                                <i class="la la-ellipsis-v font-medium-3"></i>
+                            </a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li>
+                                        <a data-action="collapse">
+                                            <i class="ft-minus"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a data-action="reload">
+                                            <i class="ft-rotate-cw"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a data-action="expand">
+                                            <i class="ft-maximize"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a data-action="close">
+                                            <i class="ft-x"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-content collapse show">
+                            <div class="card-body">
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            {{ form_start(form) }}
+
+                                            <div class="form-group">
+                                                <div class="form-control-position">
+
+                                                </div>
+                                                <label for="timesheetinput1"><i class="ft-user"></i>  Projet Name</label>
+
+                                                <div class="position-relative has-icon-left">
+                                                    {{ form_widget(form.projets, { 'attr' : { 'class' : 'form-control' } }) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="timesheetinput2"><i class="la la-briefcase"></i>   sprint Name</label>
+                                                    <div class="position-relative has-icon-left">
+                                                        {{ form_widget(form.sprintName, { 'attr' : { 'class' : 'form-control' } }) }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="timesheetinput5"> <i class="ft-clock"></i> Start Date</label>
+                                                <div class="position-relative has-icon-left">
+                                                    {{ form_widget(form.startDatesprint, {'values' : '2222-05-05','type' : 'date' ,'attr' : { 'class' : 'form-control onincomplete-inputmask' } }) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="timesheetinput6"><i class="ft-clock"></i> End Date</label>
+                                                <div class="position-relative has-icon-left">
+                                                    {{ form_widget(form.endDatesprint, { 'attr' : { 'class' : 'form-control onincomplete-inputmask' } }) }}
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="form-actions right">
+                                    <a href="{{ path('afficherprojet') }}">
+                                        <button type="button" class="btn btn-danger round btn-min-width ">
+                                            <i class="ft-x"></i>Annuler
+                                        </button>
+                                    </a>
+                                    {{ form_widget(form.ajouter, { 'attr' : { 'class' : 'btn btn-bg-gradient-x-blue-green round  pull-right' } }) }}
+                                </div>
+                                {{ form_end(form) }}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

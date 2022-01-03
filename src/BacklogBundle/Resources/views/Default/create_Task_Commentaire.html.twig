@@ -1,0 +1,116 @@
+{% extends 'backend.html.twig' %}
+
+
+{% block body %}
+
+
+    <div class="app-content content align-content-center align-self-center ">
+        <div class="content-wrapper align-self-center ">
+            <div class="content-header row">
+            </div>
+            <div class="content-body align-self-center"><!-- Chart -->
+                <div class="col-12">    </div>
+                <div class="col-12">    </div>
+                <div class="col-12">    </div>
+                <div class="col-12">    </div>
+                <p>
+
+
+                </p>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Ajouter un Commentaire </h4>
+                        <a class="heading-elements-toggle">
+                            <i class="fa fa-ellipsis-v font-medium-3"></i>
+                        </a>
+                        <div class="heading-elements">
+                            <ul class="list-inline mb-0">
+                                <li>
+                                    <a class="btn btn-sm btn-success box-shadow-2 round btn-min-width pull-right" href="{{ path('index_ProjectBacklog') }}" >Retour</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <!-- PUT BODY HERE -->
+                <div class="content-body text-center align-self-center">
+                    <div class="row match-height align-items-center align-self-center">
+                        <div class="col-6  ">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title"> Commentaire</h4>
+                                </div>
+                                <div class="card-block">
+                                    <div class="card-body">
+
+                                        <div class="form-body">
+                                            {{ form_start(form) }}
+
+
+                                                <div class="card-header">
+                                                    <h4 class="card-title">Task</h4>
+                                                </div>
+                                                <div class="form-group">
+                                                    {{ form_label(form.task, 'Choisir la ticket') }}
+                                                    {{ form_widget(form.task,  { 'attr' : { 'class' : 'form-control rounded' }}) }}
+                                                </div>
+
+
+                                                <h4 class="mt-2">Description </h4>
+                                                <fieldset class="form-group">
+
+                                                    <textarea class="form-control" id="placeTextarea" rows="3" placeholder="Votre description"
+                                                    {{ form_widget(form.description, { 'attr' : { 'class' : 'form-control' } }) }}
+                                                    </textarea>
+                                                </fieldset>
+
+                                                <fieldset class="form-group">
+                                                    <div class="custom-file">
+
+                                                        {{ form_widget(form.imageFile, { 'attr' : { 'class' : 'custom-file-input' } }) }}
+
+                                                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                        {{ form_label(form.imageFile, 'Ajouter votre fichier') }}
+
+                                                    </div>
+                                                </fieldset>
+
+
+                                        </div>
+                                        <div class="form-actions center">
+                                            <button class="btn btn-primary" {{ form_widget(form.valider) }}  </button>
+                                        </div>
+
+
+                                        {{ form_end(form) }}
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <!--/ END BODY -->
+    </div>
+    </div>
+    </div>
+
+
+
+
+{%endblock%}
+
+    {% block footer %}
+
+    {% endblock %}

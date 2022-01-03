@@ -1,0 +1,56 @@
+api_homepage:
+    path:     /
+    defaults: { _controller: ApiBundle:Default:index }
+
+api_backlog_index:
+    path:     /ProjectBacklog/index
+    defaults: { _controller: BacklogBundle:Default:IndexProjectBacklogApi }
+
+api_view_ProjectBacklog_tasks:
+    path:     /ProjectBacklog/view/{id}
+    defaults: { _controller: BacklogBundle:Default:view_ProjectBacklogApi }
+
+api_view_BacklogTask:
+    path:     /ProjectBacklog/view/{id_b}/task/view/{id}
+    defaults: { _controller: BacklogBundle:Default:ViewBacklogTaskApi }
+
+api_delete_BacklogTask:
+    path:     /ProjectBacklog/view/{id_b}/task/remove/{id}
+    defaults: { _controller: BacklogBundle:Default:RemoveBacklogTaskApi }
+
+api_add_BacklogTask:
+    path:     /ProjectBacklog/view/{id_b}/task/add/{title}/{story_points}/{state}/{priority}/{desc_f}/{sprint_id}/{finished_date}
+    defaults: { _controller: BacklogBundle:Default:AddBacklogTaskApi }
+
+api_afficher_Team:
+    path:     /Team/afficher
+    defaults: { _controller: TeamBundle:team:afficherMeg  }
+
+api_ajouter_Team:
+    path:     /Team/ajouter
+    defaults: { _controller: TeamBundle:team:ajouterMeg  }
+
+api_delete_Team:
+    path:     /Team/delete/{id}
+    defaults: { _controller: TeamBundle:team:deleteMeg  }
+
+api_modifier_Team:
+    path:     /Team/update/{id}
+    defaults: { _controller: TeamBundle:team:modifierMeg  }
+
+api_afficher_Meeting:
+    path:     /Meeting/afficher
+    defaults: { _controller: MeetingBundle:Meeting:afficherMeg  }
+
+
+api_delete_Meeting:
+    path:     /Meeting/delete/{id}
+    defaults: { _controller: MeetingBundle:Meeting:deleteMeg  }
+
+api_ajouter_Meeting:
+    path:     /Meeting/ajouter
+    defaults: { _controller: MeetingBundle:Meeting:ajouterMeg  }
+
+api_modifier_Meeting:
+    path:     /Meeting/update/{id}
+    defaults: { _controller: MeetingBundle:Meeting:updateMeg  }

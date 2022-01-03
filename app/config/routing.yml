@@ -1,0 +1,56 @@
+api:
+    resource: "@ApiBundle/Resources/config/routing.yml"
+    prefix:   /api
+
+entreprise:
+    resource: "@EntrepriseBundle/Resources/config/routing.yml"
+    prefix:   /entreprise
+
+sprint:
+    resource: "@sprintBundle/Resources/config/routing.yml"
+    prefix:   /sprint
+
+projets:
+    resource: "@projetsBundle/Resources/config/routing.yml"
+    prefix:   /projets
+
+event:
+    resource: "@EventBundle/Resources/config/routing.yml"
+    prefix:   /event
+
+subscription:
+    resource: "@SubscriptionBundle/Resources/config/routing.yml"
+    prefix:   /subscription
+
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /user
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+backlog:
+    resource: "@BacklogBundle/Resources/config/routing.yml"
+    prefix:   /backlog
+
+meeting:
+    resource: "@MeetingBundle/Resources/config/routing.yml"
+    prefix:   /meeting
+
+team:
+    resource: "@TeamBundle/Resources/config/routing.yml"
+    prefix:   /team
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+mgilet_notification:
+    resource: "@MgiletNotificationBundle/Controller/"
+    prefix: /notifications
+
+adesigns_calendar:
+    resource: "@ADesignsCalendarBundle/Resources/config/routing.xml"
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

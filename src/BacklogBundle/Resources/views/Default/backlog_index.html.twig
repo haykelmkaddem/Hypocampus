@@ -1,0 +1,93 @@
+{% extends 'backend.html.twig' %}
+
+{% block body %}
+    <div class="app-content content">
+        <div class="content-wrapper">
+
+            <div class="content-header row">
+            </div>
+            <div class="content-body"><!-- Chart -->
+                <div class="col-12">    </div>
+                <div class="col-12">    </div>
+                <div class="col-12">    </div>
+                <div class="col-12">    </div>
+                <p>
+
+
+                </p>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Liste des Projects Backlog </h4>
+                        <a class="heading-elements-toggle">
+                            <i class="fa fa-ellipsis-v font-medium-3"></i>
+                        </a>
+                        <div class="heading-elements">
+                            <ul class="list-inline mb-0">
+                                <li>
+                                    <a class="btn btn-sm btn-success box-shadow-2 round btn-min-width pull-right" href="{{ path('create_ProjectBacklog') }}">New Backlog</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    {% for i in backlogs %}
+
+
+                        <div class="col-6 col-lg-6 col-md-12">
+                            <div class="card pull-up">
+                                <div class="card-header">
+
+                                    <a href="{{ path('delete_ProjectBacklog',{'id':i.id}) }}"><span class="badge badge-pill badge-danger float-right badge-glow"><i class="ft-x"></i></span></a>
+                                    <a href="{{ path('update_ProjectBacklog',{'id':i.id}) }}"><span class="badge badge-primary badge-pill badge-glow float-right"><i class="ft-edit-2"></i></span></a>
+                                    <h4 class="card-title float-left "> Backlog {{ i.project.projetName }}: <span class="blue-grey lighten-2 font-small-3 mb-0">#{{ i.id }} </span>     </h4><a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+
+
+
+                                        <span class="badge badge-pill badge-info float-left  ">In Progress</span>
+
+
+
+                                </div>
+                                <div class="card-content collapse show">
+                                    <div class="card-body pt-0 pb-1">
+                                        <h6 class="text-muted font-small-3"> Points Completed : {{ i.pointsDone }}</h6>
+                                        <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                                            {% if i.pointsToDo !=0 %}
+
+                                            <div class="progress-bar bg-gradient-x-info" role="progressbar" style="width: {{  (i.pointsDone  - (i.pointsInProgress + i.pointsTodo ))*100/ (i.pointsDone  + i.pointsInProgress + i.pointsTodo ) }}%" aria-valuenow="{{ (i.pointsDone  - (i.pointsInProgress + i.pointsTodo ))*100/ (i.pointsDone  + i.pointsInProgress + i.pointsTodo ) }}" aria-valuemin="0" aria-valuemax="{{ (i.pointsDone  + i.pointsInProgress + i.pointsTodo ) }}"></div>
+                                        {% endif %}
+                                        </div>
+
+                                        <div class="media d-flex">
+                                            <div class="align-self-center">
+                                                <h6 class="text-bold-600 mt-1">
+
+                                                    <a href="{{ path('view_ProjectBacklog',{'id':i.id}) }}">
+                                                        <button type="button" class="btn btn-primary btn-min-width mr-1 mb-1"><i class="la la-bullseye"></i> Consulter</button></a>
+
+
+                                                </h6>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

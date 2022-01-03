@@ -1,0 +1,160 @@
+{% extends 'backend.html.twig' %}
+{% block body %}
+    <div class="app-content content">
+        <div class="content-wrapper">
+
+            <div class="content-body"><!-- Chart -->
+                <div class="col">
+                    <div class="card" >
+
+                        <div class="card-header">
+                            <h4 class="card-title" id="basic-layout-icons">Créer un Projet</h4>
+                            <a class="heading-elements-toggle">
+                                <i class="la la-ellipsis-v font-medium-3"></i>
+                            </a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li>
+                                        <a data-action="collapse">
+                                            <i class="ft-minus"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a data-action="reload">
+                                            <i class="ft-rotate-cw"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a data-action="expand">
+                                            <i class="ft-maximize"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a data-action="close">
+                                            <i class="ft-x"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-content collapse show">
+                            <div class="card-body">
+                                    <div class="form-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                {{ form_start(form) }}
+
+                                                <div class="form-group">
+                                                    <div class="form-control-position">
+
+                                                    </div>
+                                                    <label for="timesheetinput1"><i class="ft-user"></i>  Employee Name</label>
+
+                                                    <div class="position-relative has-icon-left">
+                                                        {{ form_widget(form.owner, { 'attr' : { 'class' : 'form-control' ,'type' : 'date' } }) }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="timesheetinput2"><i class="la la-briefcase"></i>   Project Name</label>
+                                                    <div class="position-relative has-icon-left">
+                                                        {{ form_widget(form.projetName, { 'attr' : { 'class' : 'form-control' } }) }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="timesheetinput5"> <i class="ft-clock"></i> Start Date</label>
+                                                    <div class="position-relative has-icon-left">
+                                                        {{ form_widget(form.startDate, { 'attr' : { 'class' : 'form-control onincomplete-inputmask' } }) }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="timesheetinput6"><i class="ft-clock"></i> End Date</label>
+                                                    <div class="position-relative has-icon-left">
+                                                        {{ form_widget(form.endDate, { 'attr' : { 'class' : 'form-control onincomplete-inputmask' } }) }}
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="timesheetinput2"><i class="ft-message-square"></i>   Description</label>
+                                                    <div class="position-relative has-icon-left">
+                                                        {{ form_widget(form.description, { 'attr' : { 'class' : 'form-control' } }) }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-actions right">
+                                        <a href="{{ path('afficherprojet') }}">
+                                        <button type="button" onclick="compar()" class="btn btn-danger round btn-min-width ">
+                                            <i class="ft-x"></i>Annuler
+                                        </button>
+                                        </a>
+                                        {{ form_widget(form.ajouter, { 'attr' : { 'class' : 'btn btn-bg-gradient-x-blue-green round  pull-right' } }) }}
+                                    </div>
+                                    {{ form_end(form) }}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+
+    function compar(sdate1,sdate2)
+    {
+
+        var date1 = new Date();
+        date1.setFullYear(sdate1.substr(6,4));
+        date1.setMonth(sdate1.substr(3,2));
+        date1.setDate(sdate1.substr(0,2));
+        date1.setHours(0);
+        date1.setMinutes(0);
+        date1.setSeconds(0);
+        date1.setMilliseconds(0);
+        var d1=date1.getTime();
+
+        var date2 = new Date();
+        date2.setFullYear(sdate2.substr(6,4));
+        date2.setMonth(sdate2.substr(3,2));
+        date2.setDate(sdate2.substr(0,2));
+        date2.setHours(0);
+        date2.setMinutes(0);
+        date2.setSeconds(0);
+        date2.setMilliseconds(0);
+        var d2=date2.getTime()
+
+//(date fin) sdate2 > sdate1 (date de début) afficher un message d'erreur
+        if(d1>d2)
+        {
+            alert('Vous avez sélectionnez une date incorrect!!')
+        }
+        else
+        {
+            alert('Correct')
+        }
+
+    }
+    }
+</script>
+{% endblock %}
